@@ -51,7 +51,7 @@ class ChooseRoom extends React.Component {
         type: 'Villa Double w/ Living Room',
         rate: {
           discounted: 417.41,
-          full: 132
+          full: 463.79
         },
         occupants: {
           min: 1,

@@ -46,18 +46,29 @@
     padding: 22px 23px 16px;
   }
 
+  .type-rate {
+    display: flex;
+  }
+
   .room-type {
     @include adelle-normal-regular;
     font-size: 1.8rem;
-    line-height: 1.5;
+    line-height: 1.333;
     color: $black;
+    width: 60%;
   }
 
   .rate-details {
+    width: 40%;
+    text-align: right;
+
     .effective-rate {
+      margin-bottom: 14px;
+
       .rate {
         @include adelle-normal-regular;
         font-size: 2rem;
+        line-height: 1.2;
         color: $black;
       }
 
@@ -65,7 +76,8 @@
         span {
           @include brown-pro-light-regular;
           font-size: 1rem;
-          color: $black;
+          color: scale-color($black, $lightness: 10%);
+          margin-right: 0.4rem;
         }
 
         .icon-info-circle {
@@ -78,9 +90,9 @@
       .rate {
         @include adelle-normal-regular;
         font-size: 2rem;
+        line-height: 1.2;
         text-decoration: line-through;
-        color: $black;
-        opacity: 0.4;
+        color: scale-color($black, $lightness: 60%);
       }
 
       .discount-percentage {
@@ -92,14 +104,22 @@
   }
 
   .capacity-size {
+    display: flex;
+
     .capacity {
+      margin-right: 16px;
+
       .icon-user {
         color: $black;
+        width: 16px;
+        height: 16px;
+        margin-right: 0.8rem;
       }
 
       span {
         @include adelle-light-regular;
         font-size: 1.5rem;
+        line-height: 2;
         color: $black;
       }
     }
@@ -107,6 +127,7 @@
     .size {
       @include adelle-light-regular;
       font-size: 1.5rem;
+      line-height: 2;
       color: $black;
     }
   }
@@ -114,16 +135,31 @@
   .beds {
     .icon-bed {
       color: $black;
+      width: 16px;
+      height: 16px;
+      margin-right: 0.8rem;
     }
 
     span {
       @include adelle-light-regular;
       font-size: 1.5rem;
+      line-height: 2;
       color: $black;
     }
   }
 
+  .compare-select {
+    display: flex;
+    justify-content: space-between;
+  }
+
   .compare-checkbox {
+    line-height: 4rem;
+
+    input[type="checkbox"] {
+      margin-right: 1rem; // TODO: use a form component system to standardize styling
+    }
+
     label {
       @include adelle-normal-regular;
       font-size: 1.5rem;

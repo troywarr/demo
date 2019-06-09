@@ -29,21 +29,23 @@ class RoomCard extends React.Component {
           />
         </div>
         <div className="info">
-          <p className="room-type">{this.props.room.type}</p>
-          <div className="rate-details">
-            <div className="effective-rate">
-              <p className="rate">${this.props.room.rate.discounted}</p>
-              <p className="rate-period">
-                <span>per night</span>
-                <FontAwesomeIcon
-                  icon={faInfoCircle}
-                  className="icon-info-circle"
-                />
-              </p>
-            </div>
-            <div className="full-rate">
-              <p className="rate">${this.props.room.rate.full}</p>
-              <p className="discount-percentage">10% off</p>
+          <div className="type-rate">
+            <p className="room-type">{this.props.room.type}</p>
+            <div className="rate-details">
+              <div className="effective-rate">
+                <p className="rate">${this.props.room.rate.discounted.toFixed(2)}</p>
+                <p className="rate-period">
+                  <span>per night</span>
+                  <FontAwesomeIcon
+                    icon={faInfoCircle}
+                    className="icon-info-circle"
+                  />
+                </p>
+              </div>
+              <div className="full-rate">
+                <p className="rate">${Math.round(this.props.room.rate.full)}</p>
+                <p className="discount-percentage">10% off</p>
+              </div>
             </div>
           </div>
           <div className="capacity-size">
@@ -63,14 +65,16 @@ class RoomCard extends React.Component {
             />
             <span>{this.props.room.bed_options}</span>
           </p>
-          <p className="compare-checkbox">
-            <input type="checkbox" id="compare-0"/>
-            <label htmlFor="compare-0">Compare</label>
-          </p>
-          <button
-            type="button"
-            className="select-room"
-          >Select Room</button>
+          <div className="compare-select">
+            <p className="compare-checkbox">
+              <input type="checkbox" id="compare-0"/>
+              <label htmlFor="compare-0">Compare</label>
+            </p>
+            <button
+              type="button"
+              className="select-room"
+            >Select Room</button>
+          </div>
         </div>
       </div>
     );
