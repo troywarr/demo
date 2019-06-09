@@ -13,7 +13,7 @@ class RoomResults extends React.Component {
   render () {
     return (
       <div className="RoomResults">
-        <h2>Which room do you want to build and customize?</h2>
+        <h2>Room Results</h2>
         <div className="room-cards">
           {this.props.rooms.map(room =>
             <RoomCard

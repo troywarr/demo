@@ -30,11 +30,11 @@ class RoomCard extends React.Component {
         </div>
         <div className="info">
           <div className="type-rate">
-            <p className="room-type">{this.props.room.type}</p>
-            <div className="rate-details">
-              <div className="effective-rate">
-                <p className="rate">${this.props.room.rate.discounted.toFixed(2)}</p>
-                <p className="rate-period">
+            <p className="type">{this.props.room.type}</p>
+            <div className="rate">
+              <div className="discounted">
+                <p className="amount">${this.props.room.rate.discounted.toFixed(2)}</p>
+                <p className="period">
                   <span>per night</span>
                   <FontAwesomeIcon
                     icon={faInfoCircle}
@@ -42,8 +42,8 @@ class RoomCard extends React.Component {
                   />
                 </p>
               </div>
-              <div className="full-rate">
-                <p className="rate">${Math.round(this.props.room.rate.full)}</p>
+              <div className="full">
+                <p className="amount">${Math.round(this.props.room.rate.full)}</p>
                 <p className="discount-percentage">10% off</p>
               </div>
             </div>
@@ -54,7 +54,7 @@ class RoomCard extends React.Component {
                 icon={faUser}
                 className="icon-user"
               />
-              <span>{this.props.room.occupants.min}-{this.props.room.occupants.max}</span>
+              <span>{this.props.room.capacity.min}-{this.props.room.capacity.max}</span>
             </p>
             <p className="size">{this.props.room.square_feet} ft<sup>2</sup></p>
           </div>
@@ -66,13 +66,13 @@ class RoomCard extends React.Component {
             <span>{this.props.room.bed_options}</span>
           </p>
           <div className="compare-select">
-            <p className="compare-checkbox">
+            <p className="compare">
               <input type="checkbox" id="compare-0"/>
               <label htmlFor="compare-0">Compare</label>
             </p>
             <button
               type="button"
-              className="select-room"
+              className="select"
             >Select Room</button>
           </div>
         </div>
