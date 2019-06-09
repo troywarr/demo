@@ -1,0 +1,144 @@
+@import '../lib.scss';
+
+
+
+.RoomCard {
+  background-color: $white;
+  border: 1px solid #ededed;
+  border-radius: 5px;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+
+  .image {
+    position: relative;
+    background-color: #666;
+    height: 144px;
+
+    .inclusive-banner {
+      @include adelle-normal-regular;
+      font-size: 1.5rem;
+      line-height: 2.5rem;
+      padding: 0.3rem 2.1rem 0;
+      color: $black;
+      background-color: $pale;
+      position: absolute;
+      top: 1.6rem;
+    }
+
+    .icon-chevron {
+      color: $white;
+      position: absolute;
+      top: percentage(62 / 144);
+      width: 32px;
+      height: 32px;
+
+      &.icon-chevron-left {
+        left: 0;
+      }
+
+      &.icon-chevron-right {
+        right: 0;
+      }
+    }
+  }
+
+  .info {
+    padding: 22px 23px 16px;
+  }
+
+  .room-type {
+    @include adelle-normal-regular;
+    font-size: 1.8rem;
+    line-height: 1.5;
+    color: $black;
+  }
+
+  .rate-details {
+    .effective-rate {
+      .rate {
+        @include adelle-normal-regular;
+        font-size: 2rem;
+        color: $black;
+      }
+
+      .rate-period {
+        span {
+          @include brown-pro-light-regular;
+          font-size: 1rem;
+          color: $black;
+        }
+
+        .icon-info-circle {
+          color: #a0a0a0;
+        }
+      }
+    }
+
+    .full-rate {
+      .rate {
+        @include adelle-normal-regular;
+        font-size: 2rem;
+        text-decoration: line-through;
+        color: $black;
+        opacity: 0.4;
+      }
+
+      .discount-percentage {
+        @include brown-pro-light-regular;
+        font-size: 1rem;
+        color: $black;
+      }
+    }
+  }
+
+  .capacity-size {
+    .capacity {
+      .icon-user {
+        color: $black;
+      }
+
+      span {
+        @include adelle-light-regular;
+        font-size: 1.5rem;
+        color: $black;
+      }
+    }
+
+    .size {
+      @include adelle-light-regular;
+      font-size: 1.5rem;
+      color: $black;
+    }
+  }
+
+  .beds {
+    .icon-bed {
+      color: $black;
+    }
+
+    span {
+      @include adelle-light-regular;
+      font-size: 1.5rem;
+      color: $black;
+    }
+  }
+
+  .compare-checkbox {
+    label {
+      @include adelle-normal-regular;
+      font-size: 1.5rem;
+      color: $black;
+    }
+  }
+
+  .select-room {
+    @include adelle-normal-regular;
+    font-size: 1.4rem;
+    color: $white;
+    background-color: $dark-sand;
+    border: none;
+    line-height: 3.8rem;
+    padding: 0.2rem 1.8rem 0;
+    border-radius: 2px;
+  }
+}

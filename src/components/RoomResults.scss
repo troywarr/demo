@@ -1,0 +1,29 @@
+@import '../lib.scss';
+
+
+
+.RoomResults {
+  h2 {
+    @include adelle-normal-regular;
+    font-size: 2.4rem;
+    line-height: 1.5;
+    color: $black;
+    margin-bottom: 24px;
+  }
+
+  .room-cards {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+  }
+
+  .RoomCard {
+    width: calc(25% - ((3.3rem * 3) / 4));
+    margin: 0 3.3rem 3.3rem 0;
+
+    &:nth-child(4) {
+      margin-right: 0;
+    }
+  }
+}

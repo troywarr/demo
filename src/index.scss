@@ -1,0 +1,32 @@
+@import './reset.scss';
+@import './fonts.scss';
+
+
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+sub,
+sup {
+  font-size: 75%; // specified in % so that the sup/sup is the right size relative to the surrounding text
+  line-height: 0; // zero out the line-height so that it doesn't interfere with the positioning that follows
+  position: relative;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}

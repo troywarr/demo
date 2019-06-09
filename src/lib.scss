@@ -1,0 +1,133 @@
+// colors
+
+$dark-sand: #af9457;
+$metallic-blue: #466e88;
+$pale: #f0ebd7;
+$black: #282828;
+$white: #fff;
+$orangey-red: #eb3b3b;
+$sepia: #865e2b;
+
+
+
+// fonts
+
+@mixin adelle-light-regular {
+  font-family: 'Adelle-Light';
+  font-style: normal;
+  font-weight: 300;
+}
+
+@mixin adelle-light-italic {
+  font-family: 'Adelle-LightItalic';
+  font-style: italic;
+  font-weight: 300;
+}
+
+@mixin adelle-normal-regular {
+  font-family: 'Adelle-Regular';
+  font-style: normal;
+  font-weight: 400;
+}
+
+@mixin adelle-normal-italic {
+  font-family: 'Adelle-Italic';
+  font-style: italic;
+  font-weight: 400;
+}
+
+@mixin adelle-semi-bold-regular {
+  font-family: 'Adelle-SemiBold';
+  font-style: normal;
+  font-weight: 600;
+}
+
+@mixin adelle-semi-bold-italic {
+  font-family: 'Adelle-SemiBoldItalic';
+  font-style: italic;
+  font-weight: 600;
+}
+
+@mixin adelle-bold-regular {
+  font-family: 'Adelle-Bold';
+  font-style: normal;
+  font-weight: 700;
+}
+
+@mixin adelle-bold-italic {
+  font-family: 'Adelle-BoldItalic';
+  font-style: italic;
+  font-weight: 700;
+}
+
+@mixin adelle-extra-bold-regular {
+  font-family: 'Adelle-ExtraBold';
+  font-style: normal;
+  font-weight: 800;
+}
+
+@mixin adelle-extra-bold-italic {
+  font-family: 'Adelle-ExtraBoldItalic';
+  font-style: italic;
+  font-weight: 800;
+}
+
+@mixin adelle-heavy-regular {
+  font-family: 'Adelle-Heavy';
+  font-style: normal;
+  font-weight: 900;
+}
+
+@mixin adelle-heavy-italic {
+  font-family: 'Adelle-HeavyItalic';
+  font-style: italic;
+  font-weight: 900;
+}
+
+@mixin brown-pro-thin-regular {
+  font-family: 'Brown Thin';
+  font-style: normal;
+  font-weight: 100;
+}
+
+@mixin brown-pro-thin-italic {
+  font-family: 'Brown Thin Itali';
+  font-style: italic;
+  font-weight: 100;
+}
+
+@mixin brown-pro-light-regular {
+  font-family: 'Brown Light';
+  font-style: normal;
+  font-weight: 300;
+}
+
+@mixin brown-pro-light-italic {
+  font-family: 'Brown Light Itali';
+  font-style: italic;
+  font-weight: 300;
+}
+
+@mixin brown-pro-normal-regular {
+  font-family: 'Brown Regular';
+  font-style: normal;
+  font-weight: 400;
+}
+
+@mixin brown-pro-normal-italic {
+  font-family: 'Brown Itali';
+  font-style: italic;
+  font-weight: 400;
+}
+
+@mixin brown-pro-bold-regular {
+  font-family: 'Brown Bold';
+  font-style: normal;
+  font-weight: 700;
+}
+
+@mixin brown-pro-bold-italic {
+  font-family: 'Brown Bold Itali';
+  font-style: italic;
+  font-weight: 700;
+}
