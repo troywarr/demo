@@ -5,13 +5,28 @@ import './StepperProgressBar.scss';
 
 
 
-function StepperProgressBar() {
+class StepperProgressBar extends React.Component {
 
-  return (
-    <div className="StepperProgressBar">
-      <p>STEPPER PROGRESS BAR</p>
-    </div>
-  );
+  render () {
+    return (
+      <section className="StepperProgressBar">
+        <ol>
+          <li className="selected">
+            <div className="dot"></div>
+            <p>1: Choose Room</p>
+          </li>
+          <li>
+            <div className="dot"></div>
+            <p>2: Choose Rate</p>
+          </li>
+          <li>
+            <div className="dot"></div>
+            <p>3: Checkout</p>
+          </li>
+        </ol>
+      </section>
+    );
+  }
 
 }
 
