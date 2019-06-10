@@ -3,6 +3,39 @@
 
 
 .OptionBar {
-  height: 68px; // TODO: remove; placeholder
-  background-color: #eee; // TODO: remove; placeholder
+  display: flex;
+  justify-content: space-between;
+
+  .box {
+    border: 1px solid $dark-sand;
+    border-radius: 4px;
+  }
+
+  .box-guests {
+    width: percentage(264 / 1268);
+  }
+
+  .box-rooms {
+    width: percentage(132 / 1268);
+  }
+
+  .box-beds {
+    width: percentage(132 / 1268);
+  }
+
+  .box-dates {
+    width: percentage(510 / 1268);
+  }
+
+  .search {
+    @include adelle-normal-regular;
+    font-size: 1.8rem;
+    color: $white;
+    background-color: $dark-sand;
+    border: none;
+    line-height: 65px;
+    padding: 3px 0 0; // TODO: add horizontal padding for text wrap buffer
+    border-radius: 4px;
+    width: percentage(166 / 1268);
+  }
 }

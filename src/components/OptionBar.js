@@ -10,15 +10,22 @@ class OptionBar extends React.Component {
   render () {
     return (
       <section className="OptionBar">
-        <div className="guests-box">
+        <div className="box box-guests">
+
         </div>
-        <div className="rooms-box">
+        <div className="box box-rooms">
+
         </div>
-        <div className="beds-box">
+        <div className="box box-beds">
+
         </div>
-        <div className="dates-box">
+        <div className="box box-dates">
+
         </div>
-        <button>Search Dates</button>
+        <button
+          type="button"
+          className="search"
+        >Search Dates</button>
       </section>
     );
   }
