@@ -1,3 +1,21 @@
-.Masthead {
+@import '../lib.scss';
 
+
+
+.Masthead {
+  background-color: #666;
+  background-image: linear-gradient(to bottom, rgba(70, 110, 136, 0), #000);
+
+  .inner {
+    width: percentage(1268 / 1400);
+    margin: 0 auto;
+    padding: 64px 0;
+  }
+
+  h1 {
+    @include adelle-semi-bold-regular;
+    font-size: 4.8rem;
+    line-height: 1.5;
+    color: #fff;
+  }
 }

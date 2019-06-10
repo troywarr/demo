@@ -11,9 +11,11 @@ import './Masthead.scss';
 function Masthead() {
 
   return (
-    <div className="Masthead">
-      <StepperProgressBar/>
-    </div>
+    <section className="Masthead">
+      <div className="inner">
+        <h1>Book Now</h1>
+      </div>
+    </section>
   );
 
 }

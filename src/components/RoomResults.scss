@@ -3,12 +3,26 @@
 
 
 .RoomResults {
+  .results-filters {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 13px;
+  }
+
   h2 {
     @include adelle-normal-regular;
     font-size: 2.4rem;
     line-height: 1.5;
     color: $black;
-    margin-bottom: 24px;
+  }
+
+  .filters {
+    p {
+      @include adelle-normal-regular;
+      font-size: 1.8rem;
+      color: $black;
+      padding-top: 11px;
+    }
   }
 
   .room-cards {
@@ -19,8 +33,8 @@
   }
 
   .RoomCard {
-    width: calc(#{percentage(1 / 3)} - ((3.3rem * 2) / 3));
-    margin: 0 3.3rem 3.3rem 0;
+    width: calc(#{percentage(1 / 3)} - (32px * (2 / 3));
+    margin: 0 32px 32px 0;
 
     &:nth-child(3) {
       margin-right: 0;

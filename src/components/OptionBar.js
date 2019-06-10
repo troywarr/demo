@@ -9,7 +9,7 @@ class OptionBar extends React.Component {
 
   render () {
     return (
-      <div className="OptionBar">
+      <section className="OptionBar">
         <div className="guests-box">
         </div>
         <div className="rooms-box">
@@ -19,7 +19,7 @@ class OptionBar extends React.Component {
         <div className="dates-box">
         </div>
         <button>Search Dates</button>
-      </div>
+      </section>
     );
   }
 

@@ -31,11 +31,18 @@ class ChooseRoom extends React.Component {
 
   render () {
     return (
-      <div className="ChooseRoom">
-        <OptionBar/>
-        <NarrowResults/>
-        <RoomResults rooms={this.state.rooms}/>
-      </div>
+      <section className="ChooseRoom">
+        <div className="inner">
+          <OptionBar/>
+          <div className="narrow-room">
+            <NarrowResults/>
+            <RoomResults
+              rooms={this.state.rooms}
+              resultsQty={this.state.rooms.length}
+            />
+          </div>
+        </div>
+      </section>
     );
   }
 

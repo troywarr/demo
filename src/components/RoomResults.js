@@ -12,8 +12,13 @@ class RoomResults extends React.Component {
 
   render () {
     return (
-      <div className="RoomResults">
-        <h2>Room Results</h2>
+      <section className="RoomResults">
+        <div className="results-filters">
+          <h2>Room Results</h2>
+          <div className="filters">
+            <p>Showing 1-{this.props.resultsQty} of {this.props.resultsQty} Results</p>
+          </div>
+        </div>
         <div className="room-cards">
           {this.props.rooms.map(room =>
             <RoomCard
@@ -22,7 +27,7 @@ class RoomResults extends React.Component {
             />
           )}
         </div>
-      </div>
+      </section>
     );
   }
 

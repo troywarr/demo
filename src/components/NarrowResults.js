@@ -9,7 +9,7 @@ function NarrowResults() {
 
   return (
     <div className="NarrowResults">
-      <p>NARROW RESULTS</p>
+
     </div>
   );
 

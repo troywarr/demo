@@ -1,3 +1,28 @@
-.ChooseRoom {
+@import '../lib.scss';
 
+
+
+.ChooseRoom {
+  .inner {
+    width: percentage(1268 / 1400);
+    margin: 0 auto;
+    padding: 32px 0;
+  }
+
+  .OptionBar {
+    margin-bottom: 32px;
+  }
+
+  .narrow-room {
+    display: flex;
+    justify-content: space-between;
+
+    .NarrowResults {
+      width: calc(#{percentage(1 / 4)} - (32px * (3 / 4)));
+    }
+
+    .RoomResults {
+      width: calc(#{percentage(3 / 4)} - (32px * (1 / 4)));
+    }
+  }
 }
