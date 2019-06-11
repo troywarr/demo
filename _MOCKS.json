@@ -77,3 +77,34 @@
     }
   ]
 }
+
+
+
+
+
+{
+  "queryParams": {
+    "propertyId": 1234567890,
+    "checkInDate": "07-01-2019",
+    "checkOutDate": "07-03-2019",
+    "adultsCount": 2,
+    "kidsCount": 0,
+    "roomCount": 1
+  },
+  "results": {
+    "items": [
+      {
+        "roomType": "Queen or 2 doubles",
+        "title": "Villa King",
+        "description": <string>,
+        "showSpecialDealRibbon": true,
+        "imageUrls" : [<url1>,<url2>,...] // a list of image url strings,
+        "rates: {
+            "original_rate": <double> // e.g 132.50,
+            "discount": { "discount_type": <string>,  "discount_percentage": <double>, "discount_amount": <double> } // usually discounts are either flat % off or flat $ off,
+            "discounted_rate": <double> // rate after applying discount,
+        }
+      }
+    ]
+  }
+}

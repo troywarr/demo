@@ -8,7 +8,12 @@
 
   .box {
     border: 1px solid $dark-sand;
+    padding: 0 18px;
     border-radius: 4px;
+    background-color: $white;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
   }
 
   .box-guests {
@@ -25,6 +30,50 @@
 
   .box-dates {
     width: percentage(510 / 1268);
+    display: flex;
+
+    .box-inner {
+      width: calc(50% - (26px / 2));
+    }
+  }
+
+  .box-inner {
+    margin: 12px 0;
+  }
+
+  .label {
+    @include brown-pro-light-regular;
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+    // line-height: 2.5rem;
+    color: $black;
+  }
+
+  .value {
+    @include adelle-normal-regular;
+    font-size: 2rem;
+    // line-height: 2.5rem;
+    color: $black;
+  }
+
+  .check-in {
+    position: relative;
+    border-right: 1px solid #a9a9a9;
+  }
+
+  .check-out {
+    padding-left: 36px;
+  }
+
+  .icon-caret-down {
+    align-self: center;
+    fill: $dark-sand;
+  }
+
+  .icon-calendar-alt {
+    width: 26px;
+    height: 26px;
+    align-self: center;
   }
 
   .search {

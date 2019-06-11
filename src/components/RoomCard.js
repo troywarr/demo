@@ -1,7 +1,8 @@
 import React from 'react';
 
 // components
-
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
 
 // icons
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -13,6 +14,21 @@ import './RoomCard.scss';
 
 
 class RoomCard extends React.Component {
+
+  constructor (props) {
+    super(props);
+    this.state = {
+      compare: false
+    };
+  }
+
+  handleChange = field => {
+    if (field === 'compare') {
+      this.setState(prevState => ({
+        compare: !prevState.compare
+      }));
+    }
+  }
 
   render () {
     return (
@@ -67,8 +83,16 @@ class RoomCard extends React.Component {
           </p>
           <div className="compare-select">
             <p className="compare">
-              <input type="checkbox" id="compare-0"/>
-              <label htmlFor="compare-0">Compare</label>
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={this.state.compare}
+                    onChange={this.handleChange.bind(this, 'compare')}
+                    value="compare"
+                  />
+                }
+                label="Compare"
+              />
             </p>
             <button
               type="button"
