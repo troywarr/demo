@@ -1,9 +1,8 @@
 import React from 'react';
 
-// icons
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendarAlt } from '@fortawesome/free-solid-svg-icons';
+// components
 import IconCaretDown from './icons/IconCaretDown';
+import IconCalendar from './icons/IconCalendar';
 
 // styles
 import './OptionBar.scss';
@@ -45,10 +44,7 @@ class OptionBar extends React.Component {
             <p className="label">Check out</p>
             <p className="value">May 16, 2019</p>
           </div>
-          <FontAwesomeIcon
-            icon={faCalendarAlt}
-            className="icon-calendar-alt"
-          />
+          <IconCalendar className="icon-calendar"/>
         </div>
         <button
           type="button"

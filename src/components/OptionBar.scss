@@ -14,6 +14,10 @@
     display: flex;
     justify-content: space-between;
     cursor: pointer;
+
+    &:hover {
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    }
   }
 
   .box-guests {
@@ -33,7 +37,7 @@
     display: flex;
 
     .box-inner {
-      width: calc(50% - (26px / 2));
+      width: calc(50% - (24px / 2)); // split calendar width (24px)
     }
   }
 
@@ -70,10 +74,11 @@
     fill: $dark-sand;
   }
 
-  .icon-calendar-alt {
-    width: 26px;
-    height: 26px;
+  .icon-calendar {
+    width: 24px;
+    height: 23px;
     align-self: center;
+    fill: $black;
   }
 
   .search {
@@ -86,5 +91,9 @@
     padding: 3px 0 0; // TODO: add horizontal padding for text wrap buffer
     border-radius: 4px;
     width: percentage(166 / 1268);
+
+    &:hover {
+      background-color: scale-color($dark-sand, $lightness: -25%);
+    }
   }
 }

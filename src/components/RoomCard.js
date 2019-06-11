@@ -3,10 +3,11 @@ import React from 'react';
 // components
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-
-// icons
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInfoCircle, faChevronLeft, faChevronRight, faUser, faBed } from '@fortawesome/free-solid-svg-icons';
+import IconCaretLeft from './icons/IconCaretLeft';
+import IconCaretRight from './icons/IconCaretRight';
+import IconInfo from './icons/IconInfo';
+import IconPerson from './icons/IconPerson';
+import IconBed from './icons/IconBed';
 
 // styles
 import './RoomCard.scss';
@@ -35,14 +36,12 @@ class RoomCard extends React.Component {
       <div className="RoomCard">
         <div className="image">
           <p className="inclusive-banner">Inclusive</p>
-          <FontAwesomeIcon
-            icon={faChevronLeft}
-            className="icon-chevron icon-chevron-left"
-          />
-          <FontAwesomeIcon
-            icon={faChevronRight}
-            className="icon-chevron icon-chevron-right"
-          />
+          <div class="nav nav-left">
+            <IconCaretLeft className="icon-caret icon-caret-left"/>
+          </div>
+          <div class="nav nav-right">
+            <IconCaretRight className="icon-caret icon-caret-right"/>
+          </div>
         </div>
         <div className="info">
           <div className="type-rate">
@@ -52,10 +51,7 @@ class RoomCard extends React.Component {
                 <p className="amount">${this.props.room.rate.discounted.toFixed(2)}</p>
                 <p className="period">
                   <span>per night</span>
-                  <FontAwesomeIcon
-                    icon={faInfoCircle}
-                    className="icon-info-circle"
-                  />
+                  <IconInfo className="icon-info"/>
                 </p>
               </div>
               <div className="full">
@@ -66,19 +62,13 @@ class RoomCard extends React.Component {
           </div>
           <div className="capacity-size">
             <p className="capacity">
-              <FontAwesomeIcon
-                icon={faUser}
-                className="icon-user"
-              />
+              <IconPerson className="icon-person"/>
               <span>{this.props.room.capacity.min}-{this.props.room.capacity.max}</span>
             </p>
             <p className="size">{this.props.room.square_feet} ft<sup>2</sup></p>
           </div>
           <p className="beds">
-            <FontAwesomeIcon
-              icon={faBed}
-              className="icon-bed"
-            />
+            <IconBed className="icon-bed"/>
             <span>{this.props.room.bed_options}</span>
           </p>
           <div className="compare-select">

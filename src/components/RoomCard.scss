@@ -26,20 +26,27 @@
     top: 1.6rem;
   }
 
-  .icon-chevron {
-    color: $white;
-    position: absolute;
-    top: percentage(62 / 144);
+  .nav {
     width: 32px;
     height: 32px;
+    position: absolute;
+    top: percentage(62 / 144);
 
-    &.icon-chevron-left {
+    &.nav-left {
       left: 0;
     }
 
-    &.icon-chevron-right {
+    &.nav-right {
       right: 0;
     }
+  }
+
+  .icon-caret {
+    fill: $white;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
   }
 
   .info {
@@ -84,8 +91,11 @@
     }
   }
 
-  .icon-info-circle {
-    color: #a0a0a0;
+  .icon-info {
+    fill: #a0a0a0;
+    width: 10px;
+    height: 10px;
+    vertical-align: top;
   }
 
   .full {
@@ -119,11 +129,12 @@
     }
   }
 
-  .icon-user {
-    color: $black;
-    width: 16px;
+  .icon-person {
+    fill: $black;
+    width: 14px;
     height: 16px;
     margin-right: 0.8rem;
+    vertical-align: text-bottom;
   }
 
   .size {
@@ -145,10 +156,11 @@
   }
 
   .icon-bed {
-    color: $black;
+    fill: $black;
     width: 16px;
-    height: 16px;
+    height: 13px;
     margin-right: 0.8rem;
+    vertical-align: text-bottom;
   }
 
   .compare-select {
@@ -193,5 +205,9 @@
     margin-top: 2px; // vertically align with compare checkbox
     padding: 0.2rem 1.8rem 0;
     border-radius: 2px;
+
+    &:hover {
+      background-color: scale-color($dark-sand, $lightness: -25%);
+    }
   }
 }
