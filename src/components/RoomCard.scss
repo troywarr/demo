@@ -13,17 +13,47 @@
     position: relative;
     background-color: #666;
     height: 144px;
+    background-size: cover;
+    background-position: center;
   }
 
-  .inclusive-banner {
-    @include adelle-normal-regular;
-    font-size: 1.5rem;
-    line-height: 2.5rem;
-    padding: 0.3rem 2.1rem 0;
-    color: $black;
-    background-color: $pale;
+  .ribbon {
     position: absolute;
-    top: 1.6rem;
+    top: 16px;
+    overflow: hidden;
+    padding-right: 5%;
+
+    &::before,
+    &::after { // banner edges
+      content: '';
+      background-color: $pale;
+      width: 100px;
+      height: 100px;
+      position: absolute;
+      right: 0;
+      display: block;
+    }
+
+    &::before {
+      top: 0;
+      transform: rotate(-30deg);
+    }
+
+    &::after {
+      bottom: 0;
+      transform: rotate(30deg);
+    }
+
+    p {
+      @include adelle-normal-regular;
+      font-size: 1.5rem;
+      line-height: 2.5rem;
+      padding: 0.3rem 1.4rem 0 1.8rem;
+      color: $black;
+      background-color: $pale;
+      position: relative;
+      z-index: 1; // move above banner edges
+    }
   }
 
   .nav {
@@ -55,6 +85,7 @@
 
   .type-rate {
     display: flex;
+    min-height: 84px;
   }
 
   .type {
@@ -71,7 +102,7 @@
     text-align: right;
   }
 
-  .discounted {
+  .primary {
     margin-bottom: 14px;
 
     .amount {
@@ -98,7 +129,7 @@
     vertical-align: top;
   }
 
-  .full {
+  .secondary {
     .amount {
       @include adelle-normal-regular;
       font-size: 2rem;
@@ -108,7 +139,7 @@
     }
   }
 
-  .discount-percentage {
+  .marketing-text {
     @include brown-pro-light-regular;
     font-size: 1rem;
     color: $black;

@@ -20,9 +20,9 @@ class RoomResults extends React.Component {
           </div>
         </div>
         <div className="room-cards">
-          {this.props.rooms.map(room =>
+          {this.props.rooms.map((room, i) =>
             <RoomCard
-              key={room.id}
+              key={i}
               room={room}
             />
           )}

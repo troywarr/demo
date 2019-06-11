@@ -21,10 +21,10 @@ class ChooseRoom extends React.Component {
   }
 
   componentDidMount () {
-    axios.get('http://www.mocky.io/v2/5cfd757d3200007e00ccd521').then(response => {
+    axios.get('http://www.mocky.io/v2/5d0018533200007a00eacb14').then(response => {
       console.log(response);
       this.setState({
-        rooms: response.data.rooms
+        rooms: response.data.results.items
       });
     });
   }

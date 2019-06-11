@@ -32,44 +32,54 @@ class RoomCard extends React.Component {
   }
 
   render () {
+    const isDiscounted = !!this.props.room.rates.discount;
+    const imageStyle = {
+      backgroundImage: `url(${this.props.room.imageUrls[0]})`
+    };
     return (
       <div className="RoomCard">
-        <div className="image">
-          <p className="inclusive-banner">Inclusive</p>
-          <div class="nav nav-left">
+        <div className="image" style={imageStyle}>
+          {this.props.room.ribbonText && (
+            <div className="ribbon">
+              <p>{this.props.room.ribbonText}</p>
+            </div>
+          )}
+          <div className="nav nav-left">
             <IconCaretLeft className="icon-caret icon-caret-left"/>
           </div>
-          <div class="nav nav-right">
+          <div className="nav nav-right">
             <IconCaretRight className="icon-caret icon-caret-right"/>
           </div>
         </div>
         <div className="info">
           <div className="type-rate">
-            <p className="type">{this.props.room.type}</p>
+            <p className="type">{this.props.room.title}</p>
             <div className="rate">
-              <div className="discounted">
-                <p className="amount">${this.props.room.rate.discounted.toFixed(2)}</p>
+              <div className="primary">
+                <p className="amount">${isDiscounted ? this.props.room.rates.discountedRate.toFixed(2) : this.props.room.rates.originalRate.toFixed(2)}</p>
                 <p className="period">
                   <span>per night</span>
                   <IconInfo className="icon-info"/>
                 </p>
               </div>
-              <div className="full">
-                <p className="amount">${Math.round(this.props.room.rate.full)}</p>
-                <p className="discount-percentage">10% off</p>
-              </div>
+              {isDiscounted && (
+                <div className="secondary">
+                  <p className="amount">${Math.round(this.props.room.rates.originalRate.toFixed(2))}</p>
+                  <p className="marketing-text">{this.props.room.rates.marketingText}</p>
+                </div>
+              )}
             </div>
           </div>
           <div className="capacity-size">
             <p className="capacity">
               <IconPerson className="icon-person"/>
-              <span>{this.props.room.capacity.min}-{this.props.room.capacity.max}</span>
+              <span>1-2</span>
             </p>
-            <p className="size">{this.props.room.square_feet} ft<sup>2</sup></p>
+            <p className="size">300 ft<sup>2</sup></p>
           </div>
           <p className="beds">
             <IconBed className="icon-bed"/>
-            <span>{this.props.room.bed_options}</span>
+            <span>Queen or 2 doubles</span>
           </p>
           <div className="compare-select">
             <p className="compare">

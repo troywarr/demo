@@ -92,17 +92,82 @@
     "roomCount": 1
   },
   "results": {
+    "metadata": {
+      "count": 5
+    },
     "items": [
       {
-        "roomType": "Queen or 2 doubles",
+        "title": "Villa King w/ Living Room",
+        "ribbonText": "Inclusive",
+        "imageUrls": [
+          "http://i.imgur.com/ocEke3t.jpg"
+        ],
+        "rates": {
+          "originalRate": 329,
+          "discount": {
+            "discountType": "percentage",
+            "discountPercentage": 10
+          },
+          "discountedRate": 296.10,
+          "marketingText": "10% off"
+        },
+        "roomFeatures": {
+
+        }
+      },
+      {
         "title": "Villa King",
-        "description": <string>,
-        "showSpecialDealRibbon": true,
-        "imageUrls" : [<url1>,<url2>,...] // a list of image url strings,
-        "rates: {
-            "original_rate": <double> // e.g 132.50,
-            "discount": { "discount_type": <string>,  "discount_percentage": <double>, "discount_amount": <double> } // usually discounts are either flat % off or flat $ off,
-            "discounted_rate": <double> // rate after applying discount,
+        "imageUrls": [
+          "http://i.imgur.com/ocEke3t.jpg"
+        ],
+        "rates": {
+          "originalRate": 299
+        },
+        "roomFeatures": {
+
+        }
+      },
+      {
+        "title": "Villa Double w/ Living Room",
+        "ribbonText": "Inclusive",
+        "imageUrls": [
+          "http://i.imgur.com/ocEke3t.jpg"
+        ],
+        "rates": {
+          "originalRate": 249,
+          "discount": {
+            "discountType": "percentage",
+            "discountPercentage": 10
+          },
+          "discountedRate": 224.10,
+          "marketingText": "10% off"
+        },
+        "roomFeatures": {
+
+        }
+      },
+      {
+        "title": "Villa Queen",
+        "imageUrls": [
+          "http://i.imgur.com/ocEke3t.jpg"
+        ],
+        "rates": {
+          "originalRate": 199
+        },
+        "roomFeatures": {
+
+        }
+      },
+      {
+        "title": "Villa Double",
+        "imageUrls": [
+          "http://i.imgur.com/ocEke3t.jpg"
+        ],
+        "rates": {
+          "originalRate": 179
+        },
+        "roomFeatures": {
+
         }
       }
     ]
