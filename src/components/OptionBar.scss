@@ -6,38 +6,89 @@
   display: flex;
   justify-content: space-between;
 
+  .selector {
+    position: relative;
+
+    &.open {
+      .icon-caret-down {
+        transform: rotate(180deg);
+      }
+
+      .dropdown {
+        visibility: visible;
+      }
+    }
+  }
+
+  .selector-guests {
+    width: percentage(264 / 1268);
+  }
+
+  .selector-rooms {
+    width: percentage(132 / 1268);
+  }
+
+  .selector-beds {
+    width: percentage(132 / 1268);
+  }
+
+  .selector-dates {
+    width: percentage(510 / 1268);
+
+    .box-inner {
+      width: calc(50% - (24px / 2)); // split calendar width (24px)
+    }
+  }
+
+  .selector-simple {
+    .dropdown {
+      padding: 10px 0;
+
+      li {
+        padding: 0.3rem 18px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+
+        &.selected {
+          background-color: $pale;
+
+          .icon-check {
+            display: block;
+          }
+        }
+      }
+
+      p {
+        @include adelle-normal-regular;
+        font-size: 1.4rem;
+        color: $black;
+        line-height: 3.9rem;
+      }
+    }
+
+    .icon-check {
+      display: none;
+      width: 12px;
+      height: 10px;
+      position: relative;
+      top: -3px;
+    }
+  }
+
   .box {
     border: 1px solid $dark-sand;
     padding: 0 18px;
     border-radius: 4px;
     background-color: $white;
     display: flex;
+    height: 100%;
     justify-content: space-between;
     cursor: pointer;
 
     &:hover {
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
-    }
-  }
-
-  .box-guests {
-    width: percentage(264 / 1268);
-  }
-
-  .box-rooms {
-    width: percentage(132 / 1268);
-  }
-
-  .box-beds {
-    width: percentage(132 / 1268);
-  }
-
-  .box-dates {
-    width: percentage(510 / 1268);
-    display: flex;
-
-    .box-inner {
-      width: calc(50% - (24px / 2)); // split calendar width (24px)
     }
   }
 
@@ -49,14 +100,12 @@
     @include brown-pro-light-regular;
     font-size: 1.2rem;
     margin-bottom: 6px;
-    // line-height: 2.5rem;
     color: $black;
   }
 
   .value {
     @include adelle-normal-regular;
     font-size: 2rem;
-    // line-height: 2.5rem;
     color: $black;
   }
 
@@ -95,5 +144,19 @@
     &:hover {
       background-color: scale-color($dark-sand, $lightness: -25%);
     }
+  }
+
+  .dropdown {
+    border: 1px solid $dark-sand;
+    border-radius: 4px;
+    background-color: $white;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    transform: translateY(100%);
+    visibility: hidden;
+    z-index: 2;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
   }
 }
