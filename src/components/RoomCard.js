@@ -45,10 +45,10 @@ class RoomCard extends React.Component {
             </div>
           )}
           <div className="nav nav-left">
-            <IconCaretLeft className="icon-caret icon-caret-left"/>
+            <IconCaretLeft className="icon icon-caret icon-caret-left"/>
           </div>
           <div className="nav nav-right">
-            <IconCaretRight className="icon-caret icon-caret-right"/>
+            <IconCaretRight className="icon icon-caret icon-caret-right"/>
           </div>
         </div>
         <div className="info">
@@ -59,7 +59,7 @@ class RoomCard extends React.Component {
                 <p className="amount">${isDiscounted ? this.props.room.rates.discountedRate.toFixed(2) : this.props.room.rates.originalRate.toFixed(2)}</p>
                 <p className="period">
                   <span>per night</span>
-                  <IconInfo className="icon-info"/>
+                  <IconInfo className="icon icon-info"/>
                 </p>
               </div>
               {isDiscounted && (
@@ -72,13 +72,13 @@ class RoomCard extends React.Component {
           </div>
           <div className="capacity-size">
             <p className="capacity">
-              <IconPerson className="icon-person"/>
+              <IconPerson className="icon icon-person"/>
               <span>1-2</span>
             </p>
             <p className="size">300 ft<sup>2</sup></p>
           </div>
           <p className="beds">
-            <IconBed className="icon-bed"/>
+            <IconBed className="icon icon-bed"/>
             <span>Queen or 2 doubles</span>
           </p>
           <div className="compare-select">

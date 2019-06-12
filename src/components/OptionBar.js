@@ -5,6 +5,8 @@ import classNames from 'classnames';
 import IconCaretDown from './icons/IconCaretDown';
 import IconCalendar from './icons/IconCalendar';
 import IconCheck from './icons/IconCheck';
+import IconPlus from './icons/IconPlus';
+import IconMinus from './icons/IconMinus';
 
 // styles
 import './OptionBar.scss';
@@ -51,6 +53,18 @@ class OptionBar extends React.Component {
   handleOptionClick = (selectorName, value) => {
     this.setState({ [selectorName]: value });
     this.toggleDropdown(selectorName);
+  }
+
+  handleGuestsControlClick = (personType, increment) => {
+    this.setState(prevState => {
+      const min = 0;
+      const max = 5;
+      let value = prevState[personType] + increment; // calculate new value
+      // stay in bounds
+      value = Math.max(min, value);
+      value = Math.min(max, value);
+      return { [personType]: value };
+    });
   }
 
   getGuestsString (adultQty, teenQty, childQty) {
@@ -115,10 +129,74 @@ class OptionBar extends React.Component {
               <p className="label">Guests</p>
               <p className="value">{this.getGuestsString(this.state.adults, this.state.teens, this.state.children)}</p>
             </div>
-            <IconCaretDown className="icon-caret-down"/>
+            <IconCaretDown className="icon icon-caret-down"/>
           </div>
           <div className="dropdown">
-            <p>GUESTS</p>
+            <ol>
+              <li className="adults">
+                <div className="control-label">
+                  <p className="person-type">Adults</p>
+                  <p className="age-range">Ages 18+</p>
+                </div>
+                <div className="controls">
+                  <p
+                    className="control control-decrement"
+                    onClick={this.handleGuestsControlClick.bind(this, 'adults', -1)}
+                  >
+                    <IconMinus className="icon icon-minus"/>
+                  </p>
+                  <p className="value">{this.state.adults}</p>
+                  <p
+                    className="control control-increment"
+                    onClick={this.handleGuestsControlClick.bind(this, 'adults', 1)}
+                  >
+                    <IconPlus className="icon icon-plus"/>
+                  </p>
+                </div>
+              </li>
+              <li className="teens">
+                <div className="control-label">
+                  <p className="person-type">Teens</p>
+                  <p className="age-range">Ages 13-17</p>
+                </div>
+                <div className="controls">
+                  <p
+                    className="control control-decrement"
+                    onClick={this.handleGuestsControlClick.bind(this, 'teens', -1)}
+                  >
+                    <IconMinus className="icon icon-minus"/>
+                  </p>
+                  <p className="value">{this.state.teens}</p>
+                  <p
+                    className="control control-increment"
+                    onClick={this.handleGuestsControlClick.bind(this, 'teens', 1)}
+                  >
+                    <IconPlus className="icon icon-plus"/>
+                  </p>
+                </div>
+              </li>
+              <li className="children">
+                <div className="control-label">
+                  <p className="person-type">Kids</p>
+                  <p className="age-range">Ages 0-12</p>
+                </div>
+                <div className="controls">
+                  <p
+                    className="control control-decrement"
+                    onClick={this.handleGuestsControlClick.bind(this, 'children', -1)}
+                  >
+                    <IconMinus className="icon icon-minus"/>
+                  </p>
+                  <p className="value">{this.state.children}</p>
+                  <p
+                    className="control control-increment"
+                    onClick={this.handleGuestsControlClick.bind(this, 'children', 1)}
+                  >
+                    <IconPlus className="icon icon-plus"/>
+                  </p>
+                </div>
+              </li>
+            </ol>
           </div>
         </div>
         {/* rooms */}
@@ -131,7 +209,7 @@ class OptionBar extends React.Component {
               <p className="label">Rooms</p>
               <p className="value">{this.state.rooms}</p>
             </div>
-            <IconCaretDown className="icon-caret-down"/>
+            <IconCaretDown className="icon icon-caret-down"/>
           </div>
           <div className="dropdown">
             <ol>
@@ -142,7 +220,7 @@ class OptionBar extends React.Component {
                   onClick={this.handleOptionClick.bind(this, 'rooms', option)}
                 >
                   <p>{option}</p>
-                  <IconCheck className="icon-check"/>
+                  <IconCheck className="icon icon-check"/>
                 </li>
               ))}
             </ol>
@@ -158,7 +236,7 @@ class OptionBar extends React.Component {
               <p className="label">Beds</p>
               <p className="value">{this.state.beds}</p>
             </div>
-            <IconCaretDown className="icon-caret-down"/>
+            <IconCaretDown className="icon icon-caret-down"/>
           </div>
           <div className="dropdown">
             <ol>
@@ -169,7 +247,7 @@ class OptionBar extends React.Component {
                   onClick={this.handleOptionClick.bind(this, 'beds', option)}
                 >
                   <p>{option}</p>
-                  <IconCheck className="icon-check"/>
+                  <IconCheck className="icon icon-check"/>
                 </li>
               ))}
             </ol>
@@ -189,7 +267,7 @@ class OptionBar extends React.Component {
               <p className="label">Check out</p>
               <p className="value">May 16, 2019</p>
             </div>
-            <IconCalendar className="icon-calendar"/>
+            <IconCalendar className="icon icon-calendar"/>
           </div>
           <div className="dropdown">
             <p>DATES</p>

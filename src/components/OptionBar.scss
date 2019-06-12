@@ -8,6 +8,7 @@
 
   .selector {
     position: relative;
+    user-select: none;
 
     &.open {
       .icon-caret-down {
@@ -22,6 +23,77 @@
 
   .selector-guests {
     width: percentage(264 / 1268);
+
+    .dropdown {
+      padding: 10px 0;
+    }
+
+    li {
+      padding: 1.4rem 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .person-type {
+      @include adelle-normal-regular;
+      font-size: 1.4rem;
+      color: $black;
+      margin-bottom: 3px;
+    }
+
+    .age-range {
+      @include brown-pro-light-regular;
+      font-size: 1.2rem;
+      color: $black;
+    }
+
+    .control-label {
+      width: 50%;
+    }
+
+    .controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 50%;
+    }
+
+    .control {
+      width: 32px;
+      height: 32px;
+      position: relative;
+      cursor: pointer;
+
+      .icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: block;
+        fill: $dark-sand;
+
+        &:hover {
+          fill: scale-color($dark-sand, $lightness: -25%);
+        }
+      }
+    }
+
+    .icon-minus {
+      width: 22px;
+      height: 2px;
+    }
+
+    .icon-plus {
+      width: 15px;
+      height: 15px;
+    }
+
+    .value {
+      @include adelle-normal-regular;
+      font-size: 1.8rem;
+      color: $black;
+    }
   }
 
   .selector-rooms {
@@ -90,23 +162,23 @@
     &:hover {
       box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
     }
+
+    .label {
+      @include brown-pro-light-regular;
+      font-size: 1.2rem;
+      color: $black;
+      margin-bottom: 6px;
+    }
+
+    .value {
+      @include adelle-normal-regular;
+      font-size: 2rem;
+      color: $black;
+    }
   }
 
   .box-inner {
     margin: 12px 0;
-  }
-
-  .label {
-    @include brown-pro-light-regular;
-    font-size: 1.2rem;
-    margin-bottom: 6px;
-    color: $black;
-  }
-
-  .value {
-    @include adelle-normal-regular;
-    font-size: 2rem;
-    color: $black;
   }
 
   .check-in {
