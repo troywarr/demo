@@ -57,12 +57,15 @@ class OptionBar extends React.Component {
 
   handleGuestsControlClick = (personType, increment) => {
     this.setState(prevState => {
-      const min = 0;
-      const max = 5;
+      const ranges = {
+        adults: [1, 5],
+        teens: [0, 5],
+        children: [0, 5]
+      };
       let value = prevState[personType] + increment; // calculate new value
       // stay in bounds
-      value = Math.max(min, value);
-      value = Math.min(max, value);
+      value = Math.max(ranges[personType][0], value);
+      value = Math.min(ranges[personType][1], value);
       return { [personType]: value };
     });
   }
