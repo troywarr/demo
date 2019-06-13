@@ -78,8 +78,8 @@ class OptionBar extends React.Component {
     this.toggleDropdown(selectorName);
   }
 
-  handleOptionClick = (selectorName, value) => {
-    this.setState({ [selectorName]: value });
+  handleOptionClick = (selectorName, stateProp, value) => {
+    this.setState({ [stateProp]: value });
     this.toggleDropdown(selectorName);
   }
 
@@ -248,7 +248,7 @@ class OptionBar extends React.Component {
                 <li
                   key={i}
                   className={this.state.roomCount === option ? 'selected' : ''}
-                  onClick={this.handleOptionClick.bind(this, 'rooms', option)}
+                  onClick={this.handleOptionClick.bind(this, 'rooms', 'roomCount', option)}
                 >
                   <p>{option}</p>
                   <IconCheck className="icon icon-check"/>
@@ -275,7 +275,7 @@ class OptionBar extends React.Component {
                 <li
                   key={i}
                   className={this.state.bedCount === option ? 'selected' : ''}
-                  onClick={this.handleOptionClick.bind(this, 'beds', option)}
+                  onClick={this.handleOptionClick.bind(this, 'beds', 'bedCount', option)}
                 >
                   <p>{option}</p>
                   <IconCheck className="icon icon-check"/>
