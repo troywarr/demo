@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import moment from 'moment';
 
 // components
 import IconCaretDown from './icons/IconCaretDown';
@@ -20,12 +21,39 @@ class OptionBar extends React.Component {
     dropdownRoomsIsOpen: false,
     dropdownBedsIsOpen: false,
     dropdownDatesIsOpen: false,
-    adults: 2,
-    teens: 0,
-    children: 1,
-    rooms: 1,
-    beds: 1
+    checkInDate: '2009-07-01',
+    checkOutDate: '2009-07-03',
+    adultsCount: 1,
+    teensCount: 0,
+    kidsCount: 0,
+    roomCount: 1,
+    bedCount: 1
   };
+
+  componentDidMount () {
+    this.setStateFromQueryParams();
+  }
+
+  setStateFromQueryParams () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const parsedParams = {
+      checkInDate: urlParams.get('checkInDate'),
+      checkOutDate: urlParams.get('checkOutDate'),
+      adultsCount: parseInt(urlParams.get('adultsCount'), 10),
+      teensCount: parseInt(urlParams.get('teensCount'), 10),
+      kidsCount: parseInt(urlParams.get('kidsCount'), 10),
+      roomCount: parseInt(urlParams.get('roomCount'), 10)
+    };
+    const state = {};
+    Object.keys(parsedParams).forEach(prop => {
+      const value = parsedParams[prop];
+      if (typeof value !== 'undefined') {
+        state[prop] = value;
+      }
+    });
+    console.log(state);
+    this.setState(state);
+  }
 
   toggleDropdown = selectorName => {
     let prop;
@@ -55,43 +83,43 @@ class OptionBar extends React.Component {
     this.toggleDropdown(selectorName);
   }
 
-  handleGuestsControlClick = (personType, increment) => {
+  handleGuestsControlClick = (stateProp, increment) => {
     this.setState(prevState => {
       const ranges = {
-        adults: [1, 5],
-        teens: [0, 5],
-        children: [0, 5]
+        adultsCount: [1, 5],
+        teensCount: [0, 5],
+        kidsCount: [0, 5]
       };
-      let value = prevState[personType] + increment; // calculate new value
+      let value = prevState[stateProp] + increment; // calculate new value
       // stay in bounds
-      value = Math.max(ranges[personType][0], value);
-      value = Math.min(ranges[personType][1], value);
-      return { [personType]: value };
+      value = Math.max(ranges[stateProp][0], value);
+      value = Math.min(ranges[stateProp][1], value);
+      return { [stateProp]: value };
     });
   }
 
-  getGuestsString (adultQty, teenQty, childQty) {
+  getGuestsString (adultsCount, teensCount, kidsCount) {
     const guests = {
       adult: {
-        qty: adultQty,
+        count: adultsCount,
         singular: 'adult',
         plural: 'adults'
       },
       teen: {
-        qty: teenQty,
+        count: teensCount,
         singular: 'teen',
         plural: 'teens'
       },
-      child: {
-        qty: childQty,
-        singular: 'child',
-        plural: 'children'
+      kid: {
+        count: kidsCount,
+        singular: 'kid',
+        plural: 'kids'
       }
     };
     const stringSegments = [];
     Object.keys(guests).forEach(personType => {
-      if (guests[personType].qty > 0) {
-        stringSegments.push(`${guests[personType].qty} ${guests[personType].qty === 1 ? guests[personType].singular : guests[personType].plural}`);
+      if (guests[personType].count > 0) {
+        stringSegments.push(`${guests[personType].count} ${guests[personType].count === 1 ? guests[personType].singular : guests[personType].plural}`);
       }
     });
     return stringSegments.join(', ');
@@ -130,7 +158,7 @@ class OptionBar extends React.Component {
           >
             <div className="box-inner">
               <p className="label">Guests</p>
-              <p className="value">{this.getGuestsString(this.state.adults, this.state.teens, this.state.children)}</p>
+              <p className="value">{this.getGuestsString(this.state.adultsCount, this.state.teensCount, this.state.kidsCount)}</p>
             </div>
             <IconCaretDown className="icon icon-caret-down"/>
           </div>
@@ -144,14 +172,14 @@ class OptionBar extends React.Component {
                 <div className="controls">
                   <p
                     className="control control-decrement"
-                    onClick={this.handleGuestsControlClick.bind(this, 'adults', -1)}
+                    onClick={this.handleGuestsControlClick.bind(this, 'adultsCount', -1)}
                   >
                     <IconMinus className="icon icon-minus"/>
                   </p>
-                  <p className="value">{this.state.adults}</p>
+                  <p className="value">{this.state.adultsCount}</p>
                   <p
                     className="control control-increment"
-                    onClick={this.handleGuestsControlClick.bind(this, 'adults', 1)}
+                    onClick={this.handleGuestsControlClick.bind(this, 'adultsCount', 1)}
                   >
                     <IconPlus className="icon icon-plus"/>
                   </p>
@@ -165,20 +193,20 @@ class OptionBar extends React.Component {
                 <div className="controls">
                   <p
                     className="control control-decrement"
-                    onClick={this.handleGuestsControlClick.bind(this, 'teens', -1)}
+                    onClick={this.handleGuestsControlClick.bind(this, 'teensCount', -1)}
                   >
                     <IconMinus className="icon icon-minus"/>
                   </p>
-                  <p className="value">{this.state.teens}</p>
+                  <p className="value">{this.state.teensCount}</p>
                   <p
                     className="control control-increment"
-                    onClick={this.handleGuestsControlClick.bind(this, 'teens', 1)}
+                    onClick={this.handleGuestsControlClick.bind(this, 'teensCount', 1)}
                   >
                     <IconPlus className="icon icon-plus"/>
                   </p>
                 </div>
               </li>
-              <li className="children">
+              <li className="kids">
                 <div className="control-label">
                   <p className="person-type">Kids</p>
                   <p className="age-range">Ages 0-12</p>
@@ -186,14 +214,14 @@ class OptionBar extends React.Component {
                 <div className="controls">
                   <p
                     className="control control-decrement"
-                    onClick={this.handleGuestsControlClick.bind(this, 'children', -1)}
+                    onClick={this.handleGuestsControlClick.bind(this, 'kidsCount', -1)}
                   >
                     <IconMinus className="icon icon-minus"/>
                   </p>
-                  <p className="value">{this.state.children}</p>
+                  <p className="value">{this.state.kidsCount}</p>
                   <p
                     className="control control-increment"
-                    onClick={this.handleGuestsControlClick.bind(this, 'children', 1)}
+                    onClick={this.handleGuestsControlClick.bind(this, 'kidsCount', 1)}
                   >
                     <IconPlus className="icon icon-plus"/>
                   </p>
@@ -210,7 +238,7 @@ class OptionBar extends React.Component {
           >
             <div className="box-inner">
               <p className="label">Rooms</p>
-              <p className="value">{this.state.rooms}</p>
+              <p className="value">{this.state.roomCount}</p>
             </div>
             <IconCaretDown className="icon icon-caret-down"/>
           </div>
@@ -219,7 +247,7 @@ class OptionBar extends React.Component {
               {[1, 2, 3, 4, 5].map((option, i) => (
                 <li
                   key={i}
-                  className={this.state.rooms === option ? 'selected' : ''}
+                  className={this.state.roomCount === option ? 'selected' : ''}
                   onClick={this.handleOptionClick.bind(this, 'rooms', option)}
                 >
                   <p>{option}</p>
@@ -237,7 +265,7 @@ class OptionBar extends React.Component {
           >
             <div className="box-inner">
               <p className="label">Beds</p>
-              <p className="value">{this.state.beds}</p>
+              <p className="value">{this.state.bedCount}</p>
             </div>
             <IconCaretDown className="icon icon-caret-down"/>
           </div>
@@ -246,7 +274,7 @@ class OptionBar extends React.Component {
               {[1, 2].map((option, i) => (
                 <li
                   key={i}
-                  className={this.state.beds === option ? 'selected' : ''}
+                  className={this.state.bedCount === option ? 'selected' : ''}
                   onClick={this.handleOptionClick.bind(this, 'beds', option)}
                 >
                   <p>{option}</p>
@@ -264,11 +292,11 @@ class OptionBar extends React.Component {
           >
             <div className="box-inner check-in">
               <p className="label">Check in</p>
-              <p className="value">May 9, 2019</p>
+              <p className="value">{moment(this.state.checkInDate).format('MMMM D, YYYY')}</p>
             </div>
             <div className="box-inner check-out">
               <p className="label">Check out</p>
-              <p className="value">May 16, 2019</p>
+              <p className="value">{moment(this.state.checkOutDate).format('MMMM D, YYYY')}</p>
             </div>
             <IconCalendar className="icon icon-calendar"/>
           </div>
