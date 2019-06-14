@@ -33,7 +33,7 @@
   }
 
   .RoomCard {
-    width: calc(#{percentage(1 / 3)} - (32px * (2 / 3));
+    width: calc(#{percentage(1 / 3)} - (32px * (2 / 3)));
     margin: 0 32px 32px 0;
 
     &:nth-child(3) {

@@ -34,27 +34,7 @@ class OptionBar extends React.Component {
     this.setStateFromQueryParams();
   }
 
-  setStateFromQueryParams () {
-    const urlParams = new URLSearchParams(window.location.search);
-    const parsedParams = {
-      checkInDate: urlParams.get('checkInDate'),
-      checkOutDate: urlParams.get('checkOutDate'),
-      adultsCount: parseInt(urlParams.get('adultsCount'), 10),
-      teensCount: parseInt(urlParams.get('teensCount'), 10),
-      kidsCount: parseInt(urlParams.get('kidsCount'), 10),
-      roomCount: parseInt(urlParams.get('roomCount'), 10)
-    };
-    const state = {};
-    Object.keys(parsedParams).forEach(prop => {
-      const value = parsedParams[prop];
-      if (typeof value !== 'undefined') {
-        state[prop] = value;
-      }
-    });
-    console.log(state);
-    this.setState(state);
-  }
-
+  // toggle open state of individual selector dropdowns
   toggleDropdown = selectorName => {
     let prop;
     switch (selectorName) {
@@ -74,15 +54,18 @@ class OptionBar extends React.Component {
     this.setState(prevState => ({ [prop]: !prevState[prop] })); // toggle boolean value
   }
 
+  // handle clicks on selector boxes
   handleBoxClick = selectorName => {
     this.toggleDropdown(selectorName);
   }
 
+  // handle clicks on options in selector dropdowns
   handleOptionClick = (selectorName, stateProp, value) => {
     this.setState({ [stateProp]: value });
     this.toggleDropdown(selectorName);
   }
 
+  // handle clicks on plus/minus icons in "guests" dropdown
   handleGuestsControlClick = (stateProp, increment) => {
     this.setState(prevState => {
       const ranges = {
@@ -98,6 +81,34 @@ class OptionBar extends React.Component {
     });
   }
 
+  // read query parameters from the URL and pre-populate the selectors
+  setStateFromQueryParams () {
+    const urlParams = new URLSearchParams(window.location.search);
+    const paramKeys = ['checkInDate', 'checkOutDate', 'adultsCount', 'teensCount', 'kidsCount', 'roomCount'];
+    const newState = {};
+    paramKeys.forEach(paramKey => {
+      const paramVal = urlParams.get(paramKey);
+      if (paramVal !== null) {
+        switch (paramKey) {
+          case 'checkInDate':
+          case 'checkOutDate':
+            newState[paramKey] = paramVal;
+            break;
+          case 'adultsCount':
+          case 'teensCount':
+          case 'kidsCount':
+          case 'roomCount':
+            newState[paramKey] = parseInt(paramVal, 10);
+            break;
+          default:
+            break;
+        }
+      }
+    });
+    this.setState(newState);
+  }
+
+  // given individual counts of adults, teens, and kids, return a string in the format "1 adult, 1 teen, 2 kids"
   getGuestsString (adultsCount, teensCount, kidsCount) {
     const guests = {
       adult: {
@@ -150,7 +161,7 @@ class OptionBar extends React.Component {
     });
     return (
       <section className="OptionBar">
-        {/* guests */}
+        {/* guests selector */}
         <div className={selectorGuestsClass}>
           <div
             className="box"
@@ -230,7 +241,7 @@ class OptionBar extends React.Component {
             </ol>
           </div>
         </div>
-        {/* rooms */}
+        {/* rooms selector */}
         <div className={selectorRoomsClass}>
           <div
             className="box"
@@ -257,7 +268,7 @@ class OptionBar extends React.Component {
             </ol>
           </div>
         </div>
-        {/* beds */}
+        {/* beds selector */}
         <div className={selectorBedsClass}>
           <div
             className="box"
@@ -284,7 +295,7 @@ class OptionBar extends React.Component {
             </ol>
           </div>
         </div>
-        {/* dates */}
+        {/* dates selector */}
         <div className={selectorDatesClass}>
           <div
             className="box"
