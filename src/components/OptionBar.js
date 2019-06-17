@@ -50,6 +50,8 @@ class OptionBar extends React.Component {
       case 'dates':
         prop = 'dropdownDatesIsOpen';
         break;
+      default:
+        break;
     }
     this.setState(prevState => ({ [prop]: !prevState[prop] })); // toggle boolean value
   }
