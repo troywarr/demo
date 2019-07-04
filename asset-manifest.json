@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/demo/static/css/main.346d8ea5.chunk.css",
+    "main.js": "/demo/static/js/main.4d8511a2.chunk.js",
+    "main.js.map": "/demo/static/js/main.4d8511a2.chunk.js.map",
+    "runtime~main.js": "/demo/static/js/runtime~main.96f7b30f.js",
+    "runtime~main.js.map": "/demo/static/js/runtime~main.96f7b30f.js.map",
+    "static/css/2.266e55a5.chunk.css": "/demo/static/css/2.266e55a5.chunk.css",
+    "static/js/2.0922f16a.chunk.js": "/demo/static/js/2.0922f16a.chunk.js",
+    "static/js/2.0922f16a.chunk.js.map": "/demo/static/js/2.0922f16a.chunk.js.map",
+    "index.html": "/demo/index.html",
+    "precache-manifest.ddd08e5fe418230b97b9790f4f97dcde.js": "/demo/precache-manifest.ddd08e5fe418230b97b9790f4f97dcde.js",
+    "service-worker.js": "/demo/service-worker.js",
+    "static/css/2.266e55a5.chunk.css.map": "/demo/static/css/2.266e55a5.chunk.css.map",
+    "static/css/main.346d8ea5.chunk.css.map": "/demo/static/css/main.346d8ea5.chunk.css.map",
+    "static/media/index.scss": "/demo/static/media/Brown Pro Thin Regular.4d4802ed.woff",
+    "static/media/Masthead.scss": "/demo/static/media/masthead-background.69b6fe79.jpg"
+  }
+}
