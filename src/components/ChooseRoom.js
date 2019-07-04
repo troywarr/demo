@@ -24,7 +24,7 @@ class ChooseRoom extends React.Component {
 
   componentDidMount () {
     this.setState({ isLoading: true });
-    axios.get('http://www.mocky.io/v2/5d101018300000ad034c9e1e?mocky-delay=2s').then(response => {
+    axios.get('https://www.mocky.io/v2/5d101018300000ad034c9e1e?mocky-delay=2s').then(response => {
       this.setState({
         isLoading: false,
         hasLoaded: true,
