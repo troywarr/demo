@@ -17,10 +17,12 @@ import './OptionBar.scss';
 class OptionBar extends React.Component {
 
   state = {
-    dropdownGuestsIsOpen: false,
-    dropdownRoomsIsOpen: false,
-    dropdownBedsIsOpen: false,
-    dropdownDatesIsOpen: false,
+    dropdownIsOpen: {
+      guests: false,
+      rooms: false,
+      beds: false,
+      dates: false
+    },
     checkInDate: '2009-07-01',
     checkOutDate: '2009-07-03',
     adultsCount: 1,
@@ -30,35 +32,48 @@ class OptionBar extends React.Component {
     bedCount: 1
   };
 
+  nodes = {};
+
+  outsideBoxClickHandlers = {};
+
   componentDidMount () {
     this.setStateFromQueryParams();
+    this.ranges = { // TODO: get these from API(s) & save to state (or do in a parent component & pass props from above)
+      adultsCount: [1, 5],
+      teensCount: [0, 5],
+      kidsCount: [0, 5]
+    };
   }
 
   // toggle open state of individual selector dropdowns
   toggleDropdown = selectorName => {
-    let prop;
-    switch (selectorName) {
-      case 'guests':
-        prop = 'dropdownGuestsIsOpen';
-        break;
-      case 'rooms':
-        prop = 'dropdownRoomsIsOpen';
-        break;
-      case 'beds':
-        prop = 'dropdownBedsIsOpen';
-        break;
-      case 'dates':
-        prop = 'dropdownDatesIsOpen';
-        break;
-      default:
-        break;
+    if (typeof this.outsideBoxClickHandlers[selectorName] !== 'function') {
+      this.outsideBoxClickHandlers[selectorName] = this.handleOutsideBoxClick.bind(this, selectorName);
     }
-    this.setState(prevState => ({ [prop]: !prevState[prop] })); // toggle boolean value
+    if (this.state.dropdownIsOpen[selectorName]) {
+      document.removeEventListener('click', this.outsideBoxClickHandlers[selectorName], false);
+    } else {
+      document.addEventListener('click', this.outsideBoxClickHandlers[selectorName], false);
+    }
+    this.setState(prevState => ({
+      dropdownIsOpen: {
+        ...prevState.dropdownIsOpen,
+        [selectorName]: !prevState.dropdownIsOpen[selectorName] // toggle boolean value
+      }
+    }));
   }
 
   // handle clicks on selector boxes
   handleBoxClick = selectorName => {
     this.toggleDropdown(selectorName);
+  }
+
+  // handle clicks outside of selector boxes
+  handleOutsideBoxClick = (selectorName, event) => {
+    if (this.nodes[selectorName].contains(event.target)) { // ignore clicks on the component itself
+      return;
+    }
+    this.handleBoxClick(selectorName);
   }
 
   // handle clicks on options in selector dropdowns
@@ -70,15 +85,10 @@ class OptionBar extends React.Component {
   // handle clicks on plus/minus icons in "guests" dropdown
   handleGuestsControlClick = (stateProp, increment) => {
     this.setState(prevState => {
-      const ranges = {
-        adultsCount: [1, 5],
-        teensCount: [0, 5],
-        kidsCount: [0, 5]
-      };
       let value = prevState[stateProp] + increment; // calculate new value
       // stay in bounds
-      value = Math.max(ranges[stateProp][0], value);
-      value = Math.min(ranges[stateProp][1], value);
+      value = Math.max(this.ranges[stateProp][0], value);
+      value = Math.min(this.ranges[stateProp][1], value);
       return { [stateProp]: value };
     });
   }
@@ -142,29 +152,34 @@ class OptionBar extends React.Component {
     const selectorGuestsClass = classNames({
       selector: true,
       'selector-guests': true,
-      open: this.state.dropdownGuestsIsOpen
+      open: this.state.dropdownIsOpen.guests
     });
     const selectorRoomsClass = classNames({
       selector: true,
       'selector-rooms': true,
       'selector-simple': true,
-      open: this.state.dropdownRoomsIsOpen
+      open: this.state.dropdownIsOpen.rooms
     });
     const selectorBedsClass = classNames({
       selector: true,
       'selector-beds': true,
       'selector-simple': true,
-      open: this.state.dropdownBedsIsOpen
+      open: this.state.dropdownIsOpen.beds
     });
     const selectorDatesClass = classNames({
       selector: true,
       'selector-dates': true,
-      open: this.state.dropdownDatesIsOpen
+      open: this.state.dropdownIsOpen.dates
     });
+
     return (
       <section className="OptionBar">
+
         {/* guests selector */}
-        <div className={selectorGuestsClass}>
+        <div
+          className={selectorGuestsClass}
+          ref={node => { this.nodes.guests = node; }}
+        >
           <div
             className="box"
             onClick={this.handleBoxClick.bind(this, 'guests')}
@@ -201,7 +216,7 @@ class OptionBar extends React.Component {
               <li className="teens">
                 <div className="control-label">
                   <p className="person-type">Teens</p>
-                  <p className="age-range">Ages 13-17</p>
+                  <p className="age-range">Ages 13-17+</p>
                 </div>
                 <div className="controls">
                   <p
@@ -243,8 +258,12 @@ class OptionBar extends React.Component {
             </ol>
           </div>
         </div>
+
         {/* rooms selector */}
-        <div className={selectorRoomsClass}>
+        <div
+          className={selectorRoomsClass}
+          ref={node => { this.nodes.rooms = node; }}
+        >
           <div
             className="box"
             onClick={this.handleBoxClick.bind(this, 'rooms')}
@@ -270,8 +289,12 @@ class OptionBar extends React.Component {
             </ol>
           </div>
         </div>
+
         {/* beds selector */}
-        <div className={selectorBedsClass}>
+        <div
+          className={selectorBedsClass}
+          ref={node => { this.nodes.beds = node; }}
+        >
           <div
             className="box"
             onClick={this.handleBoxClick.bind(this, 'beds')}
@@ -297,8 +320,12 @@ class OptionBar extends React.Component {
             </ol>
           </div>
         </div>
+
         {/* dates selector */}
-        <div className={selectorDatesClass}>
+        <div
+          className={selectorDatesClass}
+          ref={node => { this.nodes.dates = node; }}
+        >
           <div
             className="box"
             onClick={this.handleBoxClick.bind(this, 'dates')}
@@ -314,9 +341,10 @@ class OptionBar extends React.Component {
             <IconCalendar className="icon icon-calendar"/>
           </div>
           <div className="dropdown">
-            <p>DATES</p>
+            {/* TODO: add calendar here */}
           </div>
         </div>
+
         <button
           type="button"
           className="search"

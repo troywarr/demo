@@ -1,0 +1,68 @@
+@import '../lib.scss';
+
+
+
+.SignInBar {
+  background-color: $pale;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 48px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+
+  .message {
+    margin-bottom: 0;
+    line-height: 1;
+    padding-top: 0.3rem;
+    width: 99.999%;
+
+    span {
+      @include adelle-normal-regular;
+      font-size: 1.4rem;
+      color: $black;
+    }
+  }
+
+  .icon-profile {
+    margin-left: 16px;
+    margin-right: 13px;
+    width: 16px;
+    height: 16px;
+    position: relative;
+    top: -0.3rem;
+    fill: $black;
+  }
+
+  .link {
+    margin-bottom: 0;
+    line-height: 1;
+    padding-top: 0.2rem;
+    white-space: nowrap;
+
+    a {
+      @include adelle-normal-regular;
+      font-size: 1.5rem;
+      color: $metallic-blue;
+    }
+  }
+
+  .close-x {
+    width: 32px;
+    height: 32px;
+    position: relative;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+
+  .icon-close {
+    fill: $black;
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

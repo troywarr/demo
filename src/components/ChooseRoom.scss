@@ -13,16 +13,17 @@
     margin-bottom: 32px;
   }
 
-  .narrow-room {
+  .filter-room {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
+  }
 
-    .NarrowResults {
-      width: calc(#{percentage(1 / 4)} - (32px * (3 / 4)));
-    }
+  .FilterSidebar {
+    width: calc(#{percentage(1 / 4)} - (32px * (3 / 4)));
+  }
 
-    .RoomResults {
-      width: calc(#{percentage(3 / 4)} - (32px * (1 / 4)));
-    }
+  .room {
+    width: calc(#{percentage(3 / 4)} - (32px * (1 / 4)));
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 
 // components
-import BookNow from './BookNow';
+import RoomSearchResults from './RoomSearchResults';
 
 // styles
 import './App.scss';
@@ -12,7 +12,7 @@ function App () {
 
   return (
     <div className="App">
-      <BookNow/>
+      <RoomSearchResults/>
     </div>
   );
 

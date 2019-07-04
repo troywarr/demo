@@ -1,0 +1,94 @@
+@import '../lib.scss';
+
+
+
+.SortOptions {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+
+  .selector {
+    height: 100%;
+    padding: 0 10px;
+    position: relative;
+    user-select: none;
+
+    &.open {
+      .icon-triangle-down {
+        transform: scaleY(-1);
+      }
+
+      .dropdown {
+        visibility: visible;
+      }
+    }
+  }
+
+  .box {
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    cursor: pointer;
+
+    p {
+      @include adelle-normal-regular;
+      font-size: 1.5rem;
+      color: $black;
+      margin: 0 15px 0 0;
+      padding-top: 4px;
+      line-height: 1;
+    }
+  }
+
+  .icon-triangle-down {
+    width: 12px;
+    height: 6px;
+    fill: $black;
+  }
+
+  .dropdown {
+    border: 1px solid $dark-sand;
+    border-radius: 4px;
+    background-color: $white;
+    position: absolute;
+    right: 0;
+    bottom: -8px;
+    transform: translateY(100%);
+    visibility: hidden;
+    z-index: 2;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
+
+    ol {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      padding: 0.3rem 18px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+
+      &.selected {
+        background-color: $pale;
+
+        .icon-check {
+          display: block;
+        }
+      }
+    }
+
+    p {
+      @include adelle-normal-regular;
+      font-size: 1.4rem;
+      color: $black;
+      line-height: 3.9rem;
+      margin: 0;
+    }
+  }
+}

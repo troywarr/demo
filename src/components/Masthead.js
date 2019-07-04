@@ -1,8 +1,5 @@
 import React from 'react';
 
-// components
-
-
 // styles
 import './Masthead.scss';
 

@@ -12,7 +12,7 @@
 
     &.open {
       .icon-caret-down {
-        transform: rotate(180deg);
+        transform: scaleY(-1);
       }
 
       .dropdown {
@@ -28,6 +28,12 @@
       padding: 10px 0;
     }
 
+    ol {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
     li {
       padding: 1.4rem 24px;
       display: flex;
@@ -40,12 +46,15 @@
       font-size: 1.4rem;
       color: $black;
       margin-bottom: 3px;
+      line-height: 1;
     }
 
     .age-range {
       @include brown-pro-light-regular;
       font-size: 1.2rem;
       color: $black;
+      margin-bottom: 0;
+      line-height: 1;
     }
 
     .control-label {
@@ -64,6 +73,8 @@
       height: 32px;
       position: relative;
       cursor: pointer;
+      margin-bottom: 0;
+      line-height: 1;
 
       .icon {
         position: absolute;
@@ -93,6 +104,8 @@
       @include adelle-normal-regular;
       font-size: 1.8rem;
       color: $black;
+      margin-bottom: 0;
+      line-height: 1;
     }
   }
 
@@ -116,6 +129,12 @@
     .dropdown {
       padding: 10px 0;
 
+      ol {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
       li {
         padding: 0.3rem 18px 0;
         display: flex;
@@ -137,6 +156,7 @@
         font-size: 1.4rem;
         color: $black;
         line-height: 3.9rem;
+        margin: 0;
       }
     }
 
@@ -168,17 +188,25 @@
       font-size: 1.2rem;
       color: $black;
       margin-bottom: 6px;
+      line-height: 1;
     }
 
     .value {
       @include adelle-normal-regular;
       font-size: 2rem;
       color: $black;
+      line-height: 1;
+      margin-bottom: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 
   .box-inner {
     margin: 12px 0;
+    min-width: 0; // required for text truncation in flex child (see: https://css-tricks.com/flexbox-truncated-text/)
+    padding-right: 18px;
   }
 
   .check-in {

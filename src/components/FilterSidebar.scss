@@ -1,0 +1,155 @@
+@import '../lib.scss';
+
+
+
+.FilterSidebar {
+  border: 1px solid $dark-sand;
+  background-color: #fefdf9;
+  border-radius: 4px;
+  padding: 22px 22px 63px 30px;
+
+  h3 {
+    @include adelle-normal-regular;
+    font-size: 1.8rem;
+    color: $black;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .search {
+    margin-bottom: 16px;
+
+    p {
+      @include adelle-normal-regular;
+      font-size: 1.5rem;
+      color: $black;
+      margin-bottom: 7px;
+    }
+
+    .search-field {
+      width: 100%;
+      position: relative;
+    }
+
+    input {
+      @include adelle-normal-regular;
+      font-size: 1.5rem;
+      color: $black;
+      display: block;
+      width: 100%;
+      border: 1px solid $dark-sand;
+      line-height: 4rem;
+      padding: 0.2rem 40px 0 14px;
+      border-radius: 4px;
+      background-color: $white;
+
+      &:focus {
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+      }
+    }
+
+    button {
+      position: absolute;
+      right: 5px;
+      top: 50%;
+      border: none;
+      background: none;
+      transform: translateY(-50%);
+      width: 32px;
+      height: 32px;
+    }
+
+    .icon-search {
+      fill: $dark-sand;
+    }
+  }
+
+  .filters {
+    & > ul {
+      border-top: 1px solid $dark-sand;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .filter {
+    border-bottom: 1px solid $dark-sand;
+
+    &.open {
+      .icon-caret-down {
+        transform: translate(-50%, -50%) scaleY(-1);
+      }
+
+      .filter-options {
+        display: block;
+      }
+    }
+  }
+
+  .filter-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 5rem;
+    cursor: pointer;
+    user-select: none;
+
+    p {
+      @include adelle-normal-regular;
+      font-size: 1.5rem;
+      color: $dark-sand;
+      margin-bottom: 0;
+      padding-top: 0.3rem;
+    }
+  }
+
+  .toggle {
+    width: 24px;
+    height: 24px;
+    position: relative;
+  }
+
+  .icon-caret-down {
+    width: 17px;
+    height: 7px;
+    fill: $dark-sand;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .filter-options {
+    display: none;
+    margin-top: -10px;
+    padding: 0 0 15px 15px;
+
+    & > ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
+
+  .option {
+    margin: -5px 0;
+
+    label {
+      margin-bottom: 0;
+    }
+
+    .MuiSvgIcon-root {
+      width: 2.2rem;
+      height: 2.2rem;
+    }
+
+    .MuiFormControlLabel-label {
+      @include adelle-normal-regular;
+      font-size: 1.4rem;
+      color: $black;
+      letter-spacing: 0;
+      padding-top: 5px;
+    }
+  }
+}

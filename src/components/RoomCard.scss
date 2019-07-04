@@ -24,7 +24,8 @@
     padding-right: 5%;
 
     &::before,
-    &::after { // banner edges
+    &::after {
+      // banner edges
       content: '';
       background-color: $pale;
       width: 100px;
@@ -47,12 +48,13 @@
     p {
       @include adelle-normal-regular;
       font-size: 1.5rem;
+      color: $black;
       line-height: 2.5rem;
       padding: 0.3rem 1.4rem 0 1.8rem;
-      color: $black;
       background-color: $pale;
       position: relative;
       z-index: 1; // move above banner edges
+      margin-bottom: 0;
     }
   }
 
@@ -104,16 +106,22 @@
 
   .primary {
     margin-bottom: 14px;
+    cursor: pointer;
+    user-select: none;
 
     .amount {
       @include adelle-normal-regular;
       font-size: 2rem;
       line-height: 1.2;
       color: $black;
+      margin-bottom: 0;
     }
   }
 
   .period {
+    line-height: 1;
+    margin-bottom: 0;
+
     span {
       @include brown-pro-light-regular;
       font-size: 1rem;
@@ -136,6 +144,7 @@
       line-height: 1.2;
       text-decoration: line-through;
       color: scale-color($black, $lightness: 60%);
+      margin-bottom: 0;
     }
   }
 
@@ -143,6 +152,8 @@
     @include brown-pro-light-regular;
     font-size: 1rem;
     color: $black;
+    margin-bottom: 0;
+    line-height: 1;
   }
 
   .capacity-size {
@@ -150,7 +161,7 @@
   }
 
   .capacity {
-    margin-right: 16px;
+    margin: 0 16px 0 0;
 
     span {
       @include adelle-light-regular;
@@ -173,6 +184,7 @@
     font-size: 1.5rem;
     line-height: 2;
     color: $black;
+    margin-bottom: 0;
   }
 
   .beds {
@@ -201,6 +213,11 @@
 
   .compare {
     line-height: 4rem;
+    margin-bottom: 0;
+
+    label {
+      margin-bottom: 0;
+    }
 
     .MuiSvgIcon-root {
       width: 2.2rem;
@@ -214,16 +231,6 @@
       letter-spacing: 0;
       padding-top: 5px;
     }
-
-    // input[type="checkbox"] {
-    //   margin-right: 1rem; // TODO: use a form component system to standardize styling
-    // }
-    //
-    // label {
-    //   @include adelle-normal-regular;
-    //   font-size: 1.5rem;
-    //   color: $black;
-    // }
   }
 
   .select {

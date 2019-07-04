@@ -1,0 +1,158 @@
+@import '../lib.scss';
+
+
+
+.RateBreakdownModal {
+  max-width: 398px;
+  margin: 100px auto;
+
+  .modal-content {
+    border: 1px solid $dark-sand;
+    background-color: #fefdf9;
+    border-radius: 4px;
+    padding: 50px 50px 30px 50px;
+  }
+
+  .modal-header {
+    padding: 0;
+    border-bottom: none;
+  }
+
+  .modal-title {
+    @include adelle-normal-regular;
+    font-size: 2.4rem;
+    color: $black;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .close-x {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
+  }
+
+  .icon-close {
+    fill: $black;
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .modal-body {
+    padding: 0;
+  }
+
+  .breakdown-section {
+    padding-top: 18px;
+    padding-bottom: 8px;
+
+    &.base,
+    &.due {
+      th {
+        @include adelle-normal-regular;
+        font-size: 1.8rem;
+        color: $black;
+        line-height: (24 / 18);
+      }
+    }
+
+    &.base,
+    &.taxes-fees {
+      border-bottom: 1px solid #a9a9a9;
+    }
+
+    &.base {
+      th {
+        padding-top: 10px;
+        padding-bottom: 9px;
+      }
+
+      th + td {
+        padding-top: calc(10px + 0.1rem);
+        padding-bottom: 9px;
+      }
+    }
+
+    &.taxes-fees {
+      th,
+      td {
+        padding-bottom: 6px;
+      }
+
+      th {
+        @include adelle-normal-regular;
+        font-size: 1.5rem;
+        color: $black;
+        line-height: (24 / 15);
+        padding-left: 15px;
+      }
+    }
+
+    &.due {
+      th,
+      td {
+        padding-bottom: 10px;
+      }
+
+      td {
+        @include adelle-normal-regular;
+        font-size: 1.8rem;
+        color: $black;
+        line-height: (24 / 18);
+      }
+    }
+  }
+
+  table {
+    width: 100%;
+  }
+
+  tr {
+    &.main {
+    }
+
+    &.extra {
+      td {
+        @include adelle-normal-regular;
+        font-size: 1.5rem;
+        color: $black;
+        padding-left: 15px;
+      }
+    }
+  }
+
+  th,
+  td {
+    padding: 0;
+    vertical-align: top;
+  }
+
+  th {
+    & + td {
+      text-align: right;
+      white-space: nowrap;
+    }
+  }
+
+  td {
+    @include adelle-normal-regular;
+    font-size: 1.5rem;
+    color: $black;
+    line-height: (24 / 15);
+  }
+
+  h6 {
+    @include adelle-normal-regular;
+    font-size: 1.8rem;
+    color: $black;
+    line-height: (24 / 18);
+    margin-bottom: 9px;
+  }
+}

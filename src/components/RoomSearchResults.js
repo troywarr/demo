@@ -6,24 +6,24 @@ import StepperProgressBar from './StepperProgressBar';
 import ChooseRoom from './ChooseRoom';
 
 // styles
-import './BookNow.scss';
+import './RoomSearchResults.scss';
 
 
 
-function BookNow() {
+function RoomSearchResults() {
 
   return (
-    <div className="BookNow">
+    <section className="RoomSearchResults">
       <Masthead/>
-      <StepperProgressBar/>
+      <StepperProgressBar currentStep={'chooseRoom'}/>
       <ChooseRoom/>
       {/* <ChooseRate/> */}
       {/* <Checkout/> */}
-    </div>
+    </section>
   );
 
 }
 
 
 
-export default BookNow;
+export default RoomSearchResults;
